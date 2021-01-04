@@ -1,0 +1,23 @@
+<div class="container-formulario">
+  <form  [formGroup]="formGroup" (ngSubmit)="serviceLanguage()">
+      <h1>Completa el formulario</h1>
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="name">
+        <mat-error *ngIf="formGroup.get('name').status">Ingrese nombre por favor</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+        <mat-error *ngIf="formGroup.get('email').status">Ingrese con siguiente formato: 'correo@ejemplo.com'</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefono</mat-label>
+        <input matInput type="tel" formControlName="phone" maxlength="10">
+        <mat-error *ngIf="formGroup.get('phone').status">Minimo 5 dígitos y máximo 10 dígitos</mat-error>
+      </mat-form-field>
+      <div class="row">
+        <button mat-raised-button color="primary" [disabled]="formGroup.invalid" type="submit">Enviar</button>
+      </div>
+  </form>
+</div>
