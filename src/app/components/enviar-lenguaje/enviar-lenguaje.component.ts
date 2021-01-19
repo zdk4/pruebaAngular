@@ -8,6 +8,7 @@ import {NgForm} from '@angular/forms';
 })
 export class EnviarLenguajeComponent implements OnInit {
   public idSend = 0;
+  public texto = "";
   constructor(private idiomaService: IdiomaServiceService) {
 
    }
@@ -17,7 +18,8 @@ export class EnviarLenguajeComponent implements OnInit {
 
   sendIdService() {
     this.idiomaService.serviceIdioma(this.idSend).subscribe(req => {
-      alert(req.title);
+      const reqAux: any = req;
+      this.texto = reqAux.title;
     },
     err => {
       alert('No se ingreso número o no se encontro resultado con ese ID');

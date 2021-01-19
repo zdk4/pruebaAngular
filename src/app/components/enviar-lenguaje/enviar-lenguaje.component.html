@@ -5,6 +5,9 @@
           <mat-label>Ingresa cualquier número</mat-label>
           <input matInput type="number" [(ngModel)]="idSend" name="idSend">
         </mat-form-field>
+       <div class="container-label">
+        <label for="">El texto que recibe es:   {{texto}}</label>
+       </div>
         <div class="row">
           <button mat-raised-button color="primary" type="button" (click)="sendIdService()">Enviar</button>
         </div>
